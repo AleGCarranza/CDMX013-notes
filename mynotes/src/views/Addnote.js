@@ -5,6 +5,7 @@ import { db } from "../firebase/config";
 import "./Home.css";
 import "./Addnote.css";
 import { HandleSignOut } from "../components/buttons/Exit";
+import { ReturnIcon } from "../components/buttons/Return";
 
 export default function Addnote() {
   //valor inicial de mi objeto
@@ -57,10 +58,11 @@ export default function Addnote() {
             onChange={captInputs}
             value={user.note}
           />
-          <button className="buttonSave">Guardar</button>
+          <button className="buttonSave">Create Note</button>
         </form>
-        <h3 className="insightHome">Creating a new note ...</h3>
+
         <HandleSignOut />
+        <ReturnIcon />
       </div>
     </div>
   );

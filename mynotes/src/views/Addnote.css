@@ -49,12 +49,49 @@ background: rgba(53, 73, 94, 0.69);
 .buttonSave{
 
 position: relative;
-  width: 66px;
+  width: 179px;
 height: 64px;
-left: 174px;
+left: 117px;
 top: 474px;
 z-index: 1;
+background: #F0C419;
+  border-color: #FFFF;
+  border-radius: 10px;
+  font-family: 'Itim';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 18px;
+  color:rgba(53, 73, 94);
 }
+
+.buttonBack{
+  position: absolute;
+  width: 57px;
+  height: 23px;
+  left: 13px;
+  top: 76px;
+  background-color: #FFFF;
+  border-color: #FFFF;
+  font-family: 'Itim';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  color: #35495E;
+      }
+
+  
+  .iconreturn{
+  position: absolute;
+  width: 65px;
+  height: 65px;
+  left: 10px;
+  top: 16px;
+  
+  }
+
+
 
 ::placeholder {
     color:#f0e3ac;

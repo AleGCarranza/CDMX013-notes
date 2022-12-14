@@ -7,7 +7,7 @@ import { db } from "../firebase/config";
 import "./Home.css";
 import idea from "../components/images/ideahome.png";
 import add from "../components/images/iconadd.png";
-
+import iconclose from "../components/images/iconclose.png";
 export default function Home() {
   const navigate = useNavigate();
 
@@ -52,10 +52,15 @@ export default function Home() {
         <div className="containerAll">
           {list.map((list) => (
             <div className="containerNote" key={list.id}>
-              <p>{list.title}</p>
-              <p>{list.note}</p>
-              <button className="delete" onClick={() => deleteNote(list.id)}>
-                Delete
+              <p className="notesTitle">{list.title}</p>
+              <p className="notesText">{list.note}</p>
+              <button>
+                <img
+                  src={iconclose}
+                  className="buttondelete"
+                  onClick={() => deleteNote(list.id)}
+                  alt="eliminar nota"
+                />
               </button>
               <button className="edit">Edit</button>
               <HandleSignOut />
