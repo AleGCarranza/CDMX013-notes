@@ -7,21 +7,23 @@ import {
   deleteDoc,
   getDocs,
   doc,
-  getDoc,
+  getFirestore,
 } from "firebase/firestore";
-import Addnote from "./Addnote.js";
-import { db } from "../firebase/config";
+import { app } from "../firebase/config";
+//import Addnote from "./Addnote.js";
+//import { db } from "../firebase/config";
 import "./Home.css";
 //import idea from "../components/images/ideahome.png";
 import add from "../components/images/iconadd.png";
 import iconclose from "../components/images/iconclose.png";
 import iconedit from "../components/images/iconedit.png";
 
+const db = getFirestore(app);
 export default function Home() {
   const navigate = useNavigate();
 
   const buttonAdd = () => {
-    navigate("/Add");
+    navigate("/add");
   };
 
   //variables de estado
@@ -43,29 +45,15 @@ export default function Home() {
     getList();
   }, []);
 
+  const editBtn = async (id) => {
+    navigate("/editnote/" + id);
+  };
   //funcion eliminar nota de usuario
   const deleteNote = async (id) => {
     await deleteDoc(doc(db, "Notes", id));
     const newNote = [...list.filter((item) => item.id !== id)];
     setList(newNote);
   };
-
-  const [currentId, setCurrentId] = useState("");
-  // const getOneNote = async (id) => {
-  //   try {
-  //     const docRef = doc(db, "Notes", id);
-  //     const docNote = await getDoc(docRef);
-  //     setCurrentId(docNote.data());
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   if (subDoc !== "") {
-  //     getOneNote(subDoc);
-  //   }
-  // }, [subDoc]);
 
   return (
     <div className="margin">
@@ -95,9 +83,11 @@ export default function Home() {
               <button className="edit">
                 <img
                   src={iconedit}
-                  className="button "
+                  className="button"
                   alt="edit note"
-                  onClick={() => setCurrentId(list.id)}
+                  onClick={() => {
+                    editBtn(list.id);
+                  }}
                 />
               </button>
               <HandleSignOut />

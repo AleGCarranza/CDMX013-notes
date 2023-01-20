@@ -4,7 +4,7 @@ import iconReturn from "../images/iconreturn.png";
 export function ReturnIcon() {
   const navigate = useNavigate();
   const returnButton = () => {
-    navigate("/Home");
+    navigate("/home");
   };
   return (
     <>
