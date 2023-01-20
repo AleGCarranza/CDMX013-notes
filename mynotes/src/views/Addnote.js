@@ -33,7 +33,7 @@ export default function Addnote() {
     } catch (error) {
       console.log(error);
     }
-    navigate("/Home");
+    navigate("/home");
     setUser({ ...noteInit });
   };
 
